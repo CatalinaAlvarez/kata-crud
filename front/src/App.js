@@ -1,4 +1,4 @@
-import React, {useContext, useReducer, useEffect} from "react";
+import React, {useContext, useReducer, useEffect, useRef} from "react";
 import './App.css';
 
 const HOST_API = "http://localhost:8080/api"
@@ -6,6 +6,21 @@ const initialState = {
   list: []
 }
 const Store = createContext(initialState)
+
+const Form = () => {
+  const formRef = useRef(null);
+
+  
+  return <form ref= {formRef}>
+    <input type= "text" name = "name" onChange={(event)=> {
+      setState({...state, name: event.target.value})
+    }}></input>
+    <input type= "text" name = "name" onChange={(event)=> {
+      setState({...state, name: event.target.value})
+    }}></input>
+    <button onClick={onAdd}>Agregar</button>
+  </form>
+}
 
 const List = () =>{
   const{dispatch, state} = useContext(Store);
