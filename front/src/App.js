@@ -1,4 +1,4 @@
-import React, {useContext, useReducer, useEffect, useRef, useState} from "react";
+import React, {useContext, useReducer, useEffect, useRef, useState, createContext} from "react";
 import './App.css';
 
 const HOST_API = "http://localhost:8080/api"
@@ -67,7 +67,7 @@ const List = () =>{
       </tr>
     </thead>
     <tbody>
-      {state.List.map((todo) => {
+      {state.list.map((todo) => {
         return <tr key={todo.id}>
           <td>{todo.id}</td>
           <td>{todo.name}</td>
@@ -85,7 +85,7 @@ function reducer(state, action) {
       return {...state, list: action.list}
       case 'add-item':
         const newList = state.list;
-        newList.push(action, item);
+        newList.push(action.item);
         return {...state, list: newList}
     default:
       return state;
@@ -105,6 +105,8 @@ const StoreProvider = ({children}) => {
 function App() {
   return (
     <StoreProvider>
+      <Form/>
+
       <List />
     </StoreProvider>
   );
