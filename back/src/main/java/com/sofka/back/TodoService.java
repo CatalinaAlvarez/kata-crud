@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class TodoService {
+
     @Autowired
     private TodoRepository repository;
 
@@ -20,7 +21,7 @@ public class TodoService {
         repository.delete(get(id));
     }
 
-    public Todo get(long id){
+    public Todo get(Long id){
         return repository.findById(id).orElseThrow();
     }
 }

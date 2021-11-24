@@ -8,9 +8,9 @@ import javax.persistence.Id;
 public class Todo {
     @Id
     @GeneratedValue
-    public Long id;
-    private String nombre;
-    private boolean completado;
+    private Long id;
+    private String name;
+    private boolean isCompleted;
 
     public Long getId() {
         return id;
@@ -20,19 +20,19 @@ public class Todo {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public boolean isCompletado() {
-        return completado;
+    public boolean isCompleted() {
+        return isCompleted;
     }
 
-    public void setCompletado(boolean completado) {
-        this.completado = completado;
+    public void setCompleted(boolean completed) {
+        isCompleted = completed;
     }
 }
