@@ -13,7 +13,7 @@ const Form = () => {
   const { dispatch, state: { item } } = useContext(Store);
   const [state, setState] = useState({item});
 
-
+//Función para añadir item
   const onAdd = (event) => {
     event.preventDefault();
 
@@ -38,6 +38,7 @@ const Form = () => {
       });
   }
   
+  //Función para editar el item
   const onEdit = (event) => {
     event.preventDefault();
 
@@ -83,7 +84,7 @@ const List = () =>{
     })
   }, [state.list.length, dispatch]);
 
-
+  //Eliminar el item
   const onDelete = (id) => {
     fetch(HOST_API + "/" + id + "/todo", {
       method: "DELETE"
@@ -97,7 +98,7 @@ const List = () =>{
     dispatch({ type: "edit-item", item: todo })
   };
 
-
+//Crea la tabla
   return <div>
   <table >
     <thead>
